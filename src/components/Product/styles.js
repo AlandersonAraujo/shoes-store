@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled.View``;
 
@@ -31,4 +32,31 @@ export const Image = styled.Image`
   height: 350px;
   border-radius: 10px;
   position: absolute;
+`;
+
+export const ButtonLabel = styled(RectButton)`
+  height: 20px;
+  width: 20px;
+  background-color: #252323;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin-left: 10px;
+`;
+
+export const ButtonLabel2 = styled(RectButton)`
+  height: 20px;
+  width: 20px;
+  background-color: #c0baac;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin-left: 10px;
+`;
+
+export const ContainerBottom = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px 5px 25px;
 `;

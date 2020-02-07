@@ -1,52 +1,72 @@
-import React from 'react';
-import {Container, TabsContainer, Tabs, TabItem, Image} from './styles';
+import React, {Component} from 'react';
+import {
+  Container,
+  TabsContainer,
+  Tabs,
+  TabItem,
+  Image,
+  ContainerBottom,
+  ButtonLabel,
+  ButtonLabel2,
+} from './styles';
 import nike1 from '../../assets/nike1.png';
 import nike2 from '../../assets/nike2.png';
 import nike3 from '../../assets/nike3.png';
 import nike4 from '../../assets/nike4.png';
 import nike5 from '../../assets/nike5.png';
 import nike6 from '../../assets/nike6.png';
+import nike21 from '../../assets/nike21.png';
+import nike22 from '../../assets/nike22.png';
+import nike23 from '../../assets/nike23.png';
+import nike24 from '../../assets/nike24.png';
+import nike25 from '../../assets/nike25.png';
+import nike26 from '../../assets/nike26.png';
 
-export default function Product() {
-  return (
-    <Container>
-      <TabsContainer>
-        <Tabs>
-          <TabItem>
-            <Image source={nike1} />
-          </TabItem>
-        </Tabs>
+export default class Product extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-        <Tabs>
-          <TabItem>
-            <Image source={nike2} />
-          </TabItem>
-        </Tabs>
+  state = {
+    product: [],
+    setProduct: [],
+  };
 
-        <Tabs>
-          <TabItem>
-            <Image source={nike3} />
-          </TabItem>
-        </Tabs>
+  componentWillMount() {
+    () => {
+      if (!this.product) {
+        this.setState({product: [nike1, nike2, nike3, nike4, nike5, nike6]});
+      }
+    };
+  }
 
-        <Tabs>
-          <TabItem>
-            <Image source={nike4} />
-          </TabItem>
-        </Tabs>
+  SetColorBlack() {
+    this.setState({product: [nike1, nike2, nike3, nike4, nike5, nike6]});
+  }
 
-        <Tabs>
-          <TabItem>
-            <Image source={nike5} />
-          </TabItem>
-        </Tabs>
+  SetColorWhite() {
+    this.setState({
+      product: [nike21, nike22, nike23, nike24, nike25, nike26],
+    });
+  }
 
-        <Tabs>
-          <TabItem>
-            <Image source={nike6} />
-          </TabItem>
-        </Tabs>
-      </TabsContainer>
-    </Container>
-  );
+  render() {
+    return (
+      <Container>
+        <TabsContainer>
+          {this.state.product.map(item => (
+            <Tabs key={item}>
+              <TabItem>
+                <Image source={item} />
+              </TabItem>
+            </Tabs>
+          ))}
+        </TabsContainer>
+        <ContainerBottom>
+          <ButtonLabel onPress={() => this.SetColorBlack()} />
+          <ButtonLabel2 onPress={() => this.SetColorWhite()} />
+        </ContainerBottom>
+      </Container>
+    );
+  }
 }
